@@ -3,7 +3,7 @@
 <head>
   <link rel="icon" href="img/favicon.png" type="image/png">
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>toster_s</title>
   <link
     rel="stylesheet"
@@ -16,6 +16,7 @@
     html, body {
       margin: 0;
       padding: 0;
+      height: 100%;
     }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -24,6 +25,9 @@
       color: white;
       position: relative;
       min-height: 100vh;
+      /* Добавляем поддержку для Safari */
+      -webkit-backface-visibility: hidden;
+      -webkit-transform: translateZ(0);
     }
     .overlay-dim {
       position: fixed;
@@ -39,6 +43,8 @@
       padding: 2rem;
       z-index: 2;
       position: relative;
+      /* Улучшаем поддержку для Safari */
+      -webkit-transform: translate3d(0,0,0);
     }
     .profile {
       display: flex;
@@ -89,6 +95,7 @@
         rgba(255,255,255,0.07) 100%
       );
       box-shadow: 0 4px 24px 0 rgba(0,0,0,0.16), 0 1.5px 8px rgba(255,255,255,0.12) inset;
+      /* Улучшенная поддержка backdrop-filter для Safari */
       backdrop-filter: blur(7px);
       -webkit-backdrop-filter: blur(7px);
       padding: 0.6rem 1.3rem;
@@ -96,13 +103,14 @@
       position: relative;
       transition: all 0.3s;
       font-weight: 500;
+      /* Улучшаем рендеринг в Safari */
+      -webkit-transform: translate3d(0,0,0);
     }
     .weather-item:hover {
       background: rgba(255,255,255,0.2);
       box-shadow: 0 6px 28px 0 rgba(0,0,0,0.22), 0 3px 10px rgba(255,255,255,0.15) inset;
       transform: translateY(-2px);
     }
-    
     
     .bottom-section {
       display: flex;
@@ -141,6 +149,7 @@
         rgba(255,255,255,0.07) 100%
       );
       box-shadow: 0 4px 24px 0 rgba(0,0,0,0.16), 0 1.5px 8px rgba(255,255,255,0.12) inset;
+      /* Улучшенная поддержка backdrop-filter для Safari */
       backdrop-filter: blur(7px);
       -webkit-backdrop-filter: blur(7px);
       color: #fff;
@@ -154,6 +163,8 @@
       position: relative;
       text-decoration: none;
       z-index: 2;
+      /* Улучшаем рендеринг в Safari */
+      -webkit-transform: translate3d(0,0,0);
     }
     .links a:hover {
       background: rgba(255,255,255,0.22);
@@ -161,7 +172,6 @@
       transform: scale(1.12) translateY(-3px);
       border: 1.5px solid rgba(255,255,255,0.33);
     }
-    
     
     .links a::after {
       content: attr(data-label);
@@ -193,6 +203,18 @@
       text-align: center;
       font-weight: 400;
     }
+    
+    /* Дополнительные исправления для Safari */
+    @supports (-webkit-touch-callout: none) {
+      body {
+        /* Улучшаем отображение фона в Safari */
+        background-attachment: scroll;
+      }
+      .weather-item, .links a {
+        /* Альтернатива для элементов с backdrop-filter */
+        background: rgba(255,255,255,0.18);
+      }
+    }
   </style>
 </head>
 <body>
@@ -223,26 +245,17 @@
       <div class="links">
         <a href="https://www.twitch.tv/toster_s" target="_blank" data-label="Twitch">
           <i class="fab fa-twitch"></i>
-        </a>
         <a href="https://t.me/tostter_sk" target="_blank" data-label="Telegram">
           <i class="fab fa-telegram"></i>
-        </a>
         <a href="https://open.spotify.com/user/3142cpv4wunyolcuythwjm6en7ra" target="_blank" data-label="Spotify">
           <i class="fab fa-spotify"></i>
-        </a>
         <a href="https://www.instagram.com/tostersk/" target="_blank" data-label="Instagram">
           <i class="fab fa-instagram"></i>
-        </a>
         <a href="https://www.youtube.com/@BoSSToster" target="_blank" data-label="YouTube">
           <i class="fab fa-youtube"></i>
-        </a>
         <a href="https://steamcommunity.com/id/Toster_S" target="_blank" data-label="Steam">
           <i class="fab fa-steam"></i>
-          </a>
-      </div>
       <div class="footer"></div>
-    </div>
-  </div>
 
   <script>
     function updateTime() {
