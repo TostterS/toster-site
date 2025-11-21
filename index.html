@@ -18,15 +18,13 @@
       padding: 0;
       width: 100%;
       height: 100%;
-      overflow-x: hidden;
+      overflow: hidden;
     }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       color: white;
       position: relative;
-      min-height: 100vh;
     }
-    /* Фон и затемнение - теперь абсолютные вместо fixed для Safari */
     body::before {
       content: "";
       position: absolute;
@@ -51,7 +49,7 @@
     .content {
       display: grid;
       grid-template-rows: auto 1fr auto;
-      min-height: 100vh;
+      height: 100vh;
       padding: 2rem;
       position: relative;
       z-index: 1;
@@ -123,7 +121,7 @@
       flex-direction: column;
       align-items: center;
       gap: 1.5rem;
-      padding-bottom: 100px;
+      padding-bottom: 2rem;
     }
     @media (max-width: 768px) {
       .profile {
@@ -137,7 +135,7 @@
         gap: 0.5rem;
       }
       .bottom-section {
-        padding-bottom: 140px;
+        padding-bottom: 4rem;
       }
     }
     .links {
