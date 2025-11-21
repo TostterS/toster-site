@@ -94,7 +94,6 @@
       padding: 0.6rem 1.3rem;
       border-radius: 16px;
       position: relative;
-      overflow: visible;
       transition: all 0.3s;
       font-weight: 500;
     }
@@ -103,16 +102,8 @@
       box-shadow: 0 6px 28px 0 rgba(0,0,0,0.22), 0 3px 10px rgba(255,255,255,0.15) inset;
       transform: translateY(-2px);
     }
-    .weather-item::before {
-      content: "";
-      position: absolute;
-      top: 4px; left: 4px; right: 4px; bottom: 4px;
-      border-radius: 13px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0) 100%);
-      opacity: 0.6;
-      pointer-events: none;
-      z-index: 1;
-    }
+    
+    
     .bottom-section {
       display: flex;
       flex-direction: column;
@@ -161,7 +152,6 @@
       align-items: center;
       justify-content: center;
       position: relative;
-      overflow: visible;
       text-decoration: none;
       z-index: 2;
     }
@@ -171,16 +161,8 @@
       transform: scale(1.12) translateY(-3px);
       border: 1.5px solid rgba(255,255,255,0.33);
     }
-    .links a::before {
-      content: "";
-      position: absolute;
-      top: 6px; left: 6px; right: 6px; bottom: 6px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.19) 0%, rgba(255,255,255,0) 100%);
-      opacity: 0.6;
-      pointer-events: none;
-      z-index: 1;
-    }
+    
+    
     .links a::after {
       content: attr(data-label);
       position: absolute;
@@ -217,7 +199,7 @@
   <div class="overlay-dim"></div>
 
   <div class="content">
-    <!-- Верх: Профиль -->
+    
     <div class="profile">
       <img src="img/avatar.png" alt="Profile Picture" />
       <div class="profile-info">
@@ -319,5 +301,3 @@
   </script>
 </body>
 </html>
-
-
